@@ -1,0 +1,71 @@
+body{
+    background-color: white;
+}
+/*styling for the header begins from here*/
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+.header{
+    background-color:#FBBF24 ;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    height: 60px;
+    width: 100%;
+    max-width: 1500px;
+    position: relative;
+      color: #0F172A;
+      border-radius: 50px;
+      margin-left: 25px;
+      margin-top: 20px;
+}
+
+
+/*styling logo begin from here*/
+.logo{
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.logo img{
+    width: 120px;
+    height: auto;
+   
+    
+  
+   
+}
+   
+
+/*styling for navigation links*/
+.navlinks ul{
+    list-style: none;
+    margin-left: 380px;
+    font-size: 15px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.navlinks ul li a{
+    text-decoration: none;
+    margin-right: 60px;
+    
+}
+.navlinks :hover{
+    color: white;
+}
+
+ 
+/*styling for the contact me button*/
+.contact{
+    width: 80px;
+    height: 40px;
+   position: relative;
+   top:-20px;
+   margin-left: 30px;
+   
+}
