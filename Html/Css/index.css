@@ -144,22 +144,53 @@ cursor: pointer;
 
 
 
-
     /*little section between the first and the second section*/
     .little{
+        width: 100%;
         
     }
         /*style for the small siv within the middle*/
         
     .lit{
         background: white;
-            height: 80px;
-        width: 100%;
-       
+            height: 90px;
+        width:calc(200%);
+        display: flex;
+        gap:160px;
+        animation: scroll 15s linear infinite;
     }
-  
+    .lit img{
+        width: 80px;
+        height: auto;
+        display: inline-block;
+    
+    }
+    /*animation for moving icons*/
 
+  .slider{
+    width: 100%;
+    overflow: hidden;
 
+  }
+/* Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+ /*animation for rixe and fall of icons*/
+ 
+ .icon:hover{
+    animation: float 0.8s ease-in-out infinite;
+}
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
 
 
     /*styling of second section*/
