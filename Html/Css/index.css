@@ -1,5 +1,5 @@
 body{
-    background-color: #0F172A;
+    background-color: white;
 }
 /*styling for the header begins from here*/
 *{
@@ -147,6 +147,7 @@ cursor: pointer;
     /*little section between the first and the second section*/
     .little{
         width: 100%;
+        height: 0px;
         
     }
         /*style for the small siv within the middle*/
@@ -198,8 +199,9 @@ cursor: pointer;
         background-color: #0F172A;
         color: #2485fb;
         width: 100%;
-        height: 500vh;
+        height: 100vh;
         gap:20px;
+        margin-top: 100px;
 
  
    
@@ -237,23 +239,16 @@ text-align: center;
         .divtext{
             margin-bottom: 8px;
         }
-
+        
            
             /*styling for the side div*/
-            .side{
-                height: 510px;
-          margin: 110px;
-            width: 85%;
-            background: white;
-            border-radius: 10px;
-            margin-top: 100px;
-                background-image: url('../images/me.png'); /* replace with your image path */
-    
-                background-size: contain;   
-                background-position: left; /* keeps you centered in the frame */
-                background-repeat: no-repeat;
+           
         
-            }
+            
+            .quote{
+                background-color: #FBBF24;
+          
+}
           
                     .box,
                         .next {
@@ -263,6 +258,59 @@ text-align: center;
                             width: 100%;
                             margin-top: 40px;
                         }
+
+                        /*third section*/
+                        .thirdsection{
+                            width: 100%;
+        
+                            height: 100vh;
+                            
+                            background-color:white  ;
+                        }
+                        /*styling for divs within section three*/
+                       
+                        .boss{
+                             display: flex;
+                            width: 100%;
+                          height: 40vh;
+
+                        }
+                      
+
+                        /*style for second main image*/
+
+                        .picdiv img{
+                        
+         width: 180px;
+                            
+                            border-radius: 50%;
+                            object-fit: cover;
+                            box-shadow:  0 4px 15px #FBBF24;
+                             width: 65%; 
+                            height: auto;
+                            margin-top: 90px;
+                            margin-left: 220px ;
+  
+                            
+                        }
+
+                        .writingdiv{
+                            width: 60%;
+                            height: auto;
+                           
+                            margin-right: 200px;
+                         
+                        }
+                        .write{
+                       
+                            margin-top: 160px;
+                            font-size: 20px;
+                            margin-right: 100px;
+                             line-height: 1.6;
+                            
+                        
+                        }
+
 
                        
 
