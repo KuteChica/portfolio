@@ -1,236 +1,1695 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bridget Fafa Tossou | Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #111827;
+      --card: #1f2937;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --primary: #0ea5e9;
+      --secondary: #14b8a6;
+      --border: #334155;
+    }
 
-    <link rel="stylesheet" href="/Html/Css/index.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: "Manrope", sans-serif;
+      background: radial-gradient(circle at top right, #1e293b 0%, var(--bg) 50%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      letter-spacing: -0.01em;
+    }
 
-    <title>Document</title>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(14, 165, 233, 0.16), transparent 30%),
+        radial-gradient(circle at 88% 12%, rgba(20, 184, 166, 0.14), transparent 26%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-size: 1.15rem;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.2rem;
+    }
+
+    .nav nav {
+      min-width: 0;
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      position: relative;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.25s ease;
+    }
+
+    .nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      min-height: 85vh;
+      padding: 3rem 0;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.05;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      max-width: 55ch;
+      font-size: 1.02rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-links,
+    .hero-highlights {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .hero-link-chip,
+    .highlight-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+    }
+
+    .hero-link-chip:hover {
+      color: var(--text);
+      border-color: rgba(125, 211, 252, 0.28);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.15rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #00111a;
+      box-shadow: 0 10px 24px rgba(14, 165, 233, 0.24);
+    }
+
+    .btn-secondary {
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      background: linear-gradient(160deg, #1f2937, #111827);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 18px 34px rgba(2, 8, 23, 0.28);
+    }
+
+    .skills-strip {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 0.4rem;
+      margin-top: 0.8rem;
+      scrollbar-width: thin;
+      scrollbar-color: #475569 #0f172a;
+    }
+
+    .skills-strip::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .skills-strip::-webkit-scrollbar-track {
+      background: #0f172a;
+      border-radius: 999px;
+    }
+
+    .skills-strip::-webkit-scrollbar-thumb {
+      background: #475569;
+      border-radius: 999px;
+    }
+
+    .skill-logo {
+      width: 56px;
+      min-width: 56px;
+      height: 56px;
+      border-radius: 10px;
+      background: #0b1220;
+      border: 1px solid #334155;
+      padding: 0.55rem;
+      display: grid;
+      place-items: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .skill-logo:hover {
+      transform: translateY(-2px);
+      border-color: #64748b;
+    }
+
+    .skill-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .profile-wrap {
+      position: relative;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .profile-image {
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+      border-radius: 18px;
+      border: 1px solid #475569;
+      background: linear-gradient(120deg, #0f172a, #1e293b);
+      padding: 0.5rem;
+      box-shadow: 0 16px 36px rgba(2, 8, 23, 0.45);
+      animation: floatCard 5s ease-in-out infinite;
+    }
+
+    .profile-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 4.6rem 0;
+      animation: fadeUp 0.75s ease both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 30%;
+      position: relative;
+    }
+
+    section::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.18), transparent);
+    }
+
+    .section-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.65rem, 3vw, 2.2rem);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 60ch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.25rem;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #475569;
+      box-shadow: 0 14px 30px rgba(2, 8, 23, 0.35);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      padding: 1.35rem;
+      background:
+        linear-gradient(180deg, rgba(30, 41, 59, 0.94), rgba(15, 23, 42, 0.98)),
+        var(--card);
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(14, 165, 233, 0.16), transparent 30%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 40%);
+      pointer-events: none;
+    }
+
+    .service-icon {
+      position: relative;
+      z-index: 1;
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(20, 184, 166, 0.18));
+      border: 1px solid rgba(125, 211, 252, 0.2);
+      color: #7dd3fc;
+      font-size: 1.3rem;
+      box-shadow: 0 16px 30px rgba(2, 8, 23, 0.25);
+    }
+
+    .service-card h3,
+    .service-card p,
+    .service-list,
+    .service-meta {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card h3 {
+      margin-bottom: 0.6rem;
+    }
+
+    .service-list {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+      margin: 1rem 0 1.1rem;
+      color: #dbeafe;
+      font-size: 0.92rem;
+    }
+
+    .service-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .service-list i {
+      color: var(--secondary);
+      font-size: 0.8rem;
+    }
+
+    .service-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.38rem 0.72rem;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.09);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      color: #cbd5e1;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stack-card {
+      background:
+        linear-gradient(180deg, rgba(30, 41, 59, 0.94), rgba(15, 23, 42, 0.98)),
+        var(--card);
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .stack-card h3 {
+      margin-bottom: 0.2rem;
+    }
+
+    .stack-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(20, 184, 166, 0.18));
+      border: 1px solid rgba(125, 211, 252, 0.18);
+      color: #7dd3fc;
+      font-size: 1.1rem;
+    }
+
+    .stack-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .stack-list span {
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.1);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      color: #e2e8f0;
+      font-size: 0.82rem;
+    }
+
+    .projects-grid {
+      display: flex;
+      gap: 1.2rem;
+      overflow-x: auto;
+      padding-bottom: 0.45rem;
+      scroll-snap-type: x proximity;
+      scrollbar-width: thin;
+      scrollbar-color: #475569 #0f172a;
+    }
+
+    .projects-grid::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .projects-grid::-webkit-scrollbar-track {
+      background: #0f172a;
+      border-radius: 999px;
+    }
+
+    .projects-grid::-webkit-scrollbar-thumb {
+      background: #475569;
+      border-radius: 999px;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+      align-items: stretch;
+      min-height: 100%;
+      overflow: hidden;
+      flex: 0 0 min(430px, 86vw);
+      scroll-snap-align: start;
+    }
+
+    .project-preview {
+      position: relative;
+      min-height: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background:
+        linear-gradient(140deg, rgba(14, 165, 233, 0.2), rgba(20, 184, 166, 0.08)),
+        linear-gradient(180deg, #162033 0%, #0b1220 100%);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-preview.live-preview {
+      padding: 0;
+      background: #020617;
+    }
+
+    .project-preview::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(125, 211, 252, 0.18), transparent 28%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.1), rgba(15, 23, 42, 0.55));
+      pointer-events: none;
+    }
+
+    .project-preview.live-preview::before {
+      background:
+        linear-gradient(180deg, rgba(2, 6, 23, 0.1) 0%, rgba(2, 6, 23, 0.18) 55%, rgba(2, 6, 23, 0.72) 100%);
+      z-index: 1;
+    }
+
+    .project-embed {
+      position: absolute;
+      inset: 0;
+      width: 138%;
+      height: 138%;
+      border: 0;
+      background: #ffffff;
+      transform: scale(0.725);
+      transform-origin: top left;
+    }
+
+    .project-preview-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .project-preview-badge {
+      position: absolute;
+      top: 0.9rem;
+      left: 0.9rem;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(2, 6, 23, 0.76);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      color: #f8fafc;
+      font-size: 0.78rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+
+    .project-preview-meta {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      left: 1rem;
+      z-index: 2;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      color: #e2e8f0;
+    }
+
+    .project-preview-meta strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 1rem;
+    }
+
+    .project-preview-meta span {
+      color: #cbd5e1;
+      font-size: 0.82rem;
+    }
+
+    .project-window {
+      position: relative;
+      z-index: 1;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(15, 23, 42, 0.78);
+      box-shadow: 0 18px 40px rgba(2, 8, 23, 0.35);
+      overflow: hidden;
+    }
+
+    .project-window-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.7rem 0.85rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .project-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(248, 250, 252, 0.3);
+    }
+
+    .project-window-body {
+      padding: 1rem 1rem 1.15rem;
+    }
+
+    .project-kicker {
+      color: #7dd3fc;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.7rem;
+    }
+
+    .project-window-body h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .project-window-body p {
+      color: #cbd5e1;
+      font-size: 0.92rem;
+    }
+
+    .project-mini-layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 0.65rem;
+      margin-top: 0.9rem;
+    }
+
+    .project-panel,
+    .project-panel-lines {
+      border-radius: 10px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      min-height: 76px;
+    }
+
+    .project-panel {
+      padding: 0.75rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .project-panel span {
+      display: block;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(125, 211, 252, 0.95), rgba(45, 212, 191, 0.45));
+    }
+
+    .project-panel span:nth-child(2) {
+      width: 78%;
+    }
+
+    .project-panel span:nth-child(3) {
+      width: 55%;
+    }
+
+    .project-panel-lines {
+      padding: 0.75rem;
+      display: grid;
+      gap: 0.38rem;
+    }
+
+    .project-panel-lines span {
+      display: block;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(226, 232, 240, 0.18);
+    }
+
+    .project-panel-lines span:nth-child(2) {
+      width: 82%;
+    }
+
+    .project-panel-lines span:nth-child(3) {
+      width: 64%;
+    }
+
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .project-role {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      color: #dbeafe;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .project-tag {
+      display: inline-flex;
+      width: fit-content;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(14, 165, 233, 0.12);
+      border: 1px solid rgba(14, 165, 233, 0.35);
+      color: #7dd3fc;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .project-year {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    .project-content p {
+      color: var(--muted);
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .project-stack span {
+      padding: 0.38rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.1);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      color: #e2e8f0;
+      font-size: 0.82rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.72rem 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .project-link-primary {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #00111a;
+      box-shadow: 0 10px 24px rgba(14, 165, 233, 0.2);
+    }
+
+    .project-link-secondary {
+      color: var(--text);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .project-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .certificate-showcase {
+      display: grid;
+      grid-template-columns: minmax(280px, 420px) 1fr;
+      gap: 1.4rem;
+      align-items: center;
+    }
+
+    .certificate-frame {
+      position: relative;
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 22px;
+      padding: 1rem;
+      overflow: hidden;
+      box-shadow: 0 18px 34px rgba(2, 8, 23, 0.3);
+    }
+
+    .certificate-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(14, 165, 233, 0.14), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.12), transparent 30%);
+      pointer-events: none;
+    }
+
+    .certificate-frame img {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: #fff;
+    }
+
+    .certificate-content {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .certificate-badge {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.36rem 0.72rem;
+      border-radius: 999px;
+      background: rgba(20, 184, 166, 0.12);
+      border: 1px solid rgba(20, 184, 166, 0.25);
+      color: #99f6e4;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .certificate-content p {
+      color: var(--muted);
+    }
+
+    .certificate-meta {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .certificate-meta span {
+      padding: 0.42rem 0.72rem;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.1);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      color: #e2e8f0;
+      font-size: 0.84rem;
+    }
+
+    .certificate-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 1rem;
+      background:
+        linear-gradient(180deg, rgba(30, 41, 59, 0.96), rgba(15, 23, 42, 0.98)),
+        var(--card);
+      box-shadow: 0 18px 32px rgba(2, 8, 23, 0.28);
+    }
+
+    .contact-intro {
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.95rem 1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+      text-decoration: none;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(125, 211, 252, 0.25);
+      background: rgba(14, 165, 233, 0.05);
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.18), rgba(20, 184, 166, 0.16));
+      border: 1px solid rgba(125, 211, 252, 0.18);
+      color: #7dd3fc;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-details strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 0.16rem;
+    }
+
+    .contact-details span {
+      color: var(--muted);
+      font-size: 0.94rem;
+      word-break: break-word;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.9fr;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .footer-title {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.55rem;
+    }
+
+    .footer-copy {
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-top: 0.85rem;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      color: #dbeafe;
+      text-decoration: none;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(125, 211, 252, 0.28);
+      background: rgba(14, 165, 233, 0.08);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 1.5rem;
+    }
+
+    .placeholder {
+      min-height: 240px;
+      border-radius: 14px;
+      border: 1px dashed var(--border);
+      background: linear-gradient(140deg, #1e293b 0%, #0f172a 100%);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+    }
+
+    .about-photo {
+      max-width: 420px;
+      width: 100%;
+      justify-self: start;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      background: rgba(2, 8, 23, 0.36);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatCard {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .about,
+      .certificate-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.9rem;
+      }
+
+      .nav nav,
+      .nav ul {
+        width: 100%;
+      }
+
+      .nav ul {
+        display: flex;
+        gap: 0.8rem;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.2rem;
+        scrollbar-width: none;
+      }
+
+      .nav ul::-webkit-scrollbar {
+        display: none;
+      }
+
+      .profile-image {
+        animation: none;
+        max-width: 320px;
+      }
+
+      .hero-card {
+        padding: 1rem;
+      }
+
+      section {
+        padding: 3.6rem 0;
+      }
+
+      .hero {
+        min-height: auto;
+        gap: 1.5rem;
+        padding-top: 2rem;
+      }
+
+      .project-card {
+        flex-basis: min(360px, 88vw);
+      }
+
+      .contact-item {
+        padding: 0.9rem;
+      }
+
+      .skill-logo {
+        width: 50px;
+        min-width: 50px;
+        height: 50px;
+        padding: 0.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100%, calc(100% - 1.2rem));
+      }
+
+      h1 {
+        font-size: clamp(2rem, 11vw, 2.7rem);
+      }
+
+      .hero p,
+      .section-sub,
+      .contact-intro {
+        font-size: 0.97rem;
+      }
+
+      .actions,
+      .hero-links,
+      .hero-highlights,
+      .project-links,
+      .certificate-actions {
+        flex-direction: column;
+      }
+
+      .btn,
+      .project-link,
+      .hero-link-chip,
+      .highlight-chip {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .project-card {
+        flex-basis: 90vw;
+      }
+
+      .project-preview {
+        min-height: 200px;
+      }
+
+      .project-embed {
+        width: 150%;
+        height: 150%;
+        transform: scale(0.67);
+      }
+
+      .service-card,
+      .stack-card,
+      .contact-card,
+      .certificate-frame,
+      .certificate-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .contact-item {
+        align-items: flex-start;
+      }
+
+      .contact-icon {
+        width: 44px;
+        height: 44px;
+      }
+
+      .footer-social {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- the landing page -->
-    <section id="landingpage">
-      
- <header class="header">
-    
-            <img src="/Html/images/logowhite.png" alt="logo" class="logo">
-           
+  <header>
+    <div class="container nav">
+      <div class="logo">Bridget<span>.</span></div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#stack">Tech Stack</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    
-        <nav class="navlinks">
-            <ul>
-            <li><a href="/html/index.html"> Home</a></li>
-            <li><a href="/html/index.html">Service</a> </li>
-            <li><a href="/html/index.html"> About</a> </li>
-            <li><a href="/html/index.html"> Projects</a></li>
-            <li><a href="/html/index.html">Blogs</a> </li>
-            <li><a href="/html/index.html">Testimonials</a> </li>
-        
-        
-            </ul>
-
-        </nav>
-          <button class="contact">contact me </button>
-
-
-        
-  
-
- </header>
- 
-       
-
- <!--the hero section-->
-<div class="parent">
-
- <div class="line">
-   <!-- Image -->
-   
-   
-    <!-- Text content -->
-    <div class="intro-text">
-      <p>Hello There!</p>
-      <p class="first">I'm <span class="bri"><u>Bridget Fafa Tossou</u></span></p>
-      <h1>A Software Developer</h1>
-      <h1>Based in Ghana</h1>
-      <p class="writings">Focused on clean design and efficient development.</p>
-      <p class="writings">Every project is created with clarity and purpose.</p>
-      <p class="writings">Passionate about turning ideas into seamless digital experiences.</p>
-      <div class="icon">
-        <img src="/Html/images/recolored.png" alt="Icon">
+  <main class="container">
+    <section class="hero" id="home">
+      <div>
+        <span class="badge">Frontend Developer | Ghana</span>
+        <h1>Bridget Fafa Tossou</h1>
+        <p>I build modern digital experiences with thoughtful design, responsive frontend development, and product-focused problem solving. I enjoy turning ideas into polished web interfaces that feel clear, useful, and visually strong.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="mailto:bridgettossou13@gmail.com?subject=CV%20Request">Request CV</a>
+        </div>
+        <div class="hero-links">
+          <a class="hero-link-chip" href="https://www.linkedin.com/in/bridgettossou?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+          <a class="hero-link-chip" href="https://github.com/KuteChica" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a class="hero-link-chip" href="mailto:bridgettossou13@gmail.com"><i class="fa-solid fa-envelope"></i> Email Me</a>
+        </div>
+        <div class="hero-highlights">
+          <span class="highlight-chip"><i class="fa-solid fa-briefcase"></i> Available for internships</span>
+          <span class="highlight-chip"><i class="fa-solid fa-award"></i> Women Techsters Bootcamp Graduate</span>
+          <span class="highlight-chip"><i class="fa-solid fa-code"></i> Frontend-focused builder</span>
+        </div>
       </div>
-
-    </div>
-      <div class="introimage">
-      <img src="/Html/images/kk.png" alt="Bridget Fafa Tossou">
-    </div>
- </div>
-
- 
-
-  </div>
-</div>
-</div>
-</div>
-
-
+      <div class="profile-wrap">
+        <div class="profile-image">
+          <img src="../images/me.png" alt="Portrait of Bridget Fafa Tossou">
+        </div>
+        <div class="hero-card">
+          <h3>Core Skills</h3>
+          <div class="skills-strip">
+            <div class="skill-logo"><img src="../images/html-removebg-preview.png" alt="HTML"></div>
+            <div class="skill-logo"><img src="../images/CSS-removebg-preview.png" alt="CSS"></div>
+            <div class="skill-logo"><img src="../images/JavaScript.jpg" alt="JavaScript"></div>
+            <div class="skill-logo"><img src="../images/react-removebg-preview.png" alt="React"></div>
+            <div class="skill-logo"><img src="../images/git-removebg-preview.png" alt="Git"></div>
+            <div class="skill-logo"><img src="../images/github-removebg-preview.png" alt="GitHub"></div>
+            <div class="skill-logo"><img src="../images/figma.png" alt="Figma"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
-
-
-
-
-
-
-
-
-      <!--section2-->
-    <section class="section2">
-
-      
-       <h1 class="service">Serivices I Provide</h1>
-       <div class="box">
-      <!--divs within the section about services-->
-              
-  <div class="firsti">
-    <div class="divicon">
-      <img src="/Html/images/web.png" alt="webdev">
-    </div>
-    <div class="divtext">
-      <h3>Web Design</h3>
-      <p>I design and develop responsive websites that are visually appealing, fast, and easy to navigate.
-        <p> My solutions focus on modern design principles, performance optimization, and user experience.</p>
-
-    </div>
-      </div>
-
- <div class="firsti">
-      <div class="divicon">
-        <img src="/Html/images/ui.png" alt="UI">
-  
-      </div>
-    <div class="divtext">
-      <h3>UI/UX</h3>
-      <p>I design intuitive and user-friendly interfaces that focus on usability, accessibility, and visual clarity.</p>
-        <p> My goal is to create seamless user experiences that keep users engaged and satisfied across all devices</p>
-
-    </div>
-   </div>
-
- <div class="firsti"> 
-      <div class="divicon">
-        <img src="/Html/images/app.png" alt="app development">
-      </div>
-    <div class="divtext">
-      <h3>App development</h3>
-      <p>I build efficient and scalable mobile applications with smooth performance and clean architecture. </p>
-      <p>  From idea to deployment, I focus on functionality, usability, and long-term maintainability.</p>
-
-    </div>
- </div>
-
-     
-
- </div> 
-
-         <div class="next">
- <div class="second"> </div>
- <div class="third"> </div>
- <div class="second"> </div>
-
-</div>
-
- 
-    
-    
-    
-    </section>
-
-
-
-
-    <!--little section between the first and the second section-->
-      <section class="little">
-        <div class="slider">
-  
-        <div class="lit">
-          <img src="/Html/images/CSS-removebg-preview.png" class="icon">
-          <img src="/Html/images/html-removebg-preview.png" class="icon">
-          <img src="/Html/images/JavaScript.jpg" class="icon">
-          <img src="/Html/images/react-removebg-preview.png" class="icon">
-          <img src="/Html/images/git-removebg-preview.png" class="icon">
-          <img src="/Html/images/github-removebg-preview.png " class="icon">
-          <img src="/Html/images/figma.png"class="icon">
-
-
-          <!-- duplication on images for smooth loop -->
-
-          <img src="/Html/images/CSS-removebg-preview.png" class="icon">
-          <img src="/Html/images/html-removebg-preview.png" class="icon">
-          <img src="/Html/images/JavaScript.jpg" class="icon">
-          <img src="/Html/images/react-removebg-preview.png" class="icon">
-          <img src="/Html/images/git-removebg-preview.png" class="icon">
-          <img src="/Html/images/github-removebg-preview.png " class="icon">
-          <img src="/Html/images/figma.png"class="icon">
-          
-        </div>
-        </div>
-        
-        
-      </section>
-
-
-
-      <!-- project section -->
-              <section class="projectsection">
-            
-                <div class="divsection">
-                  
-                  
-                  <div class="blog">
-                   
-                  </div>
-                  <div class="koef">
-                    
-                  </div>
-                  <div class="shuttle">  </div>
-
-                </div>
-                
-              </section>
-
-
-
-    <!-- third section -->
-
-    <section class="thirdsection">
-      
-      <div class="boss">
-      <div class="picdiv">
-        <img src="/Html/images/me.png" alt="bri">
-        </div>
-      <div class="writingdiv">
-        <div class="write">
- About Me
-<h1>Who is Bridget Fafa</h1>
-<p>
-  I am a dedicated and detail-oriented professional with a strong passion for technology and continuous learning.I enjoy tackling challenging problems, developing practical solutions, and improving processes through innovation. 
-   With a focus on collaboration and growth, I strive to deliver high-quality results while constantly expanding my skills and knowledge in my field</p>
-  
-
-</div>
-</div>
+    <section id="services">
+      <h2 class="section-title">Services</h2>
+      <p class="section-sub">Design and development support shaped around usable products, polished interfaces, and dependable builds.</p>
+      <div class="services-grid">
+        <article class="card service-card">
+          <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+          <h3>Web Development</h3>
+          <p>Responsive websites and frontend builds created to feel modern, load quickly, and support real user goals.</p>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i><span>Landing pages and portfolio websites</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Responsive layouts across desktop and mobile</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Clean structure, performance, and usability</span></li>
+          </ul>
+          <div class="service-meta">Frontend Builds</div>
+        </article>
+        <article class="card service-card">
+          <div class="service-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+          <h3>UI/UX Design</h3>
+          <p>Thoughtful interface design focused on clarity, visual balance, and smooth journeys from first click to final action.</p>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i><span>Wireframes and interface layout planning</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Readable, user-friendly visual structure</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Design decisions grounded in real use</span></li>
+          </ul>
+          <div class="service-meta">Interface Design</div>
+        </article>
+        <article class="card service-card">
+          <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h3>App Development</h3>
+          <p>Interactive web apps and product experiences built to handle content, workflows, and day-to-day user interaction.</p>
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i><span>Dashboards, product interfaces, and tools</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Authentication, forms, and dynamic sections</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Maintainable code for future improvement</span></li>
+          </ul>
+          <div class="service-meta">Interactive Products</div>
+        </article>
       </div>
     </section>
-<footer>
 
-</footer>
+    <section id="stack">
+      <h2 class="section-title">Tech Stack</h2>
+      <p class="section-sub">Tools and technologies I use to design, build, and refine digital products.</p>
+      <div class="stack-grid">
+        <article class="card stack-card">
+          <div class="stack-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <div>
+            <h3>Frontend</h3>
+            <p>Building responsive interfaces and structured page layouts.</p>
+          </div>
+          <div class="stack-list">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>React</span>
+          </div>
+        </article>
+        <article class="card stack-card">
+          <div class="stack-icon"><i class="fa-solid fa-palette"></i></div>
+          <div>
+            <h3>Design</h3>
+            <p>Shaping layouts, visual hierarchy, and user-friendly flows.</p>
+          </div>
+          <div class="stack-list">
+            <span>Figma</span>
+            <span>UI Design</span>
+            <span>UX Thinking</span>
+            <span>Wireframing</span>
+          </div>
+        </article>
+        <article class="card stack-card">
+          <div class="stack-icon"><i class="fa-solid fa-database"></i></div>
+          <div>
+            <h3>App Features</h3>
+            <p>Working with real product behavior and interactive workflows.</p>
+          </div>
+          <div class="stack-list">
+            <span>Firebase Auth</span>
+            <span>Forms</span>
+            <span>Dynamic UI</span>
+            <span>Responsive Apps</span>
+          </div>
+        </article>
+        <article class="card stack-card">
+          <div class="stack-icon"><i class="fa-solid fa-code-branch"></i></div>
+          <div>
+            <h3>Workflow</h3>
+            <p>Collaborating, iterating, and keeping projects organized.</p>
+          </div>
+          <div class="stack-list">
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>Team Projects</span>
+            <span>Problem Solving</span>
+          </div>
+        </article>
+      </div>
+    </section>
 
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-sub">Here are some of the projects I have worked on, from personal builds to team collaborations.</p>
+      <div class="projects-grid">
+        <article class="card project-card">
+          <div class="project-preview live-preview">
+            <iframe
+              class="project-embed"
+              src="https://kutechica.github.io/Capstone/"
+              title="Landing page preview of the Capstone project"
+              loading="lazy">
+            </iframe>
+            <div class="project-preview-badge">Landing Page</div>
+            <div class="project-preview-meta">
+              <div>
+                <strong>Capstone</strong>
+                <span>Waste-to-value platform preview</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">Live Project</span>
+              <span class="project-year">Sustainability Platform</span>
+            </div>
+            <span class="project-role"><i class="fa-solid fa-user"></i> Role: Frontend Developer</span>
+            <div>
+              <h3>Capstone</h3>
+              <p>A capstone platform called ClearMySpace that connects users with recyclers through waste scanning, pickups, marketplace listings, payments, and tracking for reusable materials.</p>
+            </div>
+            <div class="project-stack" aria-label="Project technologies">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Marketplace & Tracking</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link project-link-primary" href="https://kutechica.github.io/Capstone/" target="_blank" rel="noopener noreferrer">View Live Site</a>
+              <a class="project-link project-link-secondary" href="#contact">Request Case Study</a>
+            </div>
+          </div>
+        </article>
+        <article class="card project-card">
+          <div class="project-preview live-preview">
+            <iframe
+              class="project-embed"
+              src="https://kutechica.github.io/ecommerce_project/"
+              title="Landing page preview of the Ecommerce Project"
+              loading="lazy">
+            </iframe>
+            <div class="project-preview-badge">Landing Page</div>
+            <div class="project-preview-meta">
+              <div>
+                <strong>SwiftServe Storefront</strong>
+                <span>Team-built ecommerce landing page</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">Live Project</span>
+              <span class="project-year">Team Project</span>
+            </div>
+            <span class="project-role"><i class="fa-solid fa-people-group"></i> Role: Team Contributor</span>
+            <div>
+              <h3>SwiftServe Storefront</h3>
+              <p>A team-built ecommerce site focused on product discovery, search, categories, cart access, and a guided storefront experience that feels easier to browse than a typical catalog page.</p>
+            </div>
+            <div class="project-stack" aria-label="Project technologies">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Product Search</span>
+              <span>Team Collaboration</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link project-link-primary" href="https://kutechica.github.io/ecommerce_project/" target="_blank" rel="noopener noreferrer">View Live Site</a>
+              <a class="project-link project-link-secondary" href="#contact">Request Case Study</a>
+            </div>
+          </div>
+        </article>
+        <article class="card project-card">
+          <div class="project-preview live-preview">
+            <img
+              class="project-preview-image"
+              src="../images/kutr.png"
+              alt="Preview of the first page shown after sign up on the Blogs Website">
+            <div class="project-preview-badge">Live Preview</div>
+            <div class="project-preview-meta">
+              <div>
+                <strong>Blogs Website</strong>
+                <span>Story blog home page</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">Live Project</span>
+              <span class="project-year">Content Platform</span>
+            </div>
+            <span class="project-role"><i class="fa-solid fa-user"></i> Role: Frontend Developer</span>
+            <div>
+              <h3>Blogs Website</h3>
+              <p>A storytelling blog platform with user sign-up, login flow, featured story cards, and protected story submission for sharing original narratives and life experiences.</p>
+            </div>
+            <div class="project-stack" aria-label="Project technologies">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Firebase Auth</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link project-link-primary" href="https://kutechica.github.io/blogs/" target="_blank" rel="noopener noreferrer">View Live Site</a>
+              <a class="project-link project-link-secondary" href="#contact">Request Case Study</a>
+            </div>
+          </div>
+        </article>
+        <article class="card project-card">
+          <div class="project-preview live-preview">
+            <img
+              class="project-preview-image"
+              src="../images/koe.png"
+              alt="Preview of the KOECOM construction website">
+            <div class="project-preview-badge">Live Preview</div>
+            <div class="project-preview-meta">
+              <div>
+                <strong>KOECOM Website</strong>
+                <span>Construction and smart-home services</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">Live Project</span>
+              <span class="project-year">Business Website</span>
+            </div>
+            <span class="project-role"><i class="fa-solid fa-user"></i> Role: Frontend Developer</span>
+            <div>
+              <h3>KOECOM Website</h3>
+              <p>A business website for KOECOM that showcases smart-home solutions, electrical installations, plumbing, carpentry, and construction services with a strong trust-building layout.</p>
+            </div>
+            <div class="project-stack" aria-label="Project technologies">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>Responsive Design</span>
+              <span>Service Showcase</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link project-link-primary" href="https://kutechica.github.io/koec/" target="_blank" rel="noopener noreferrer">View Live Site</a>
+              <a class="project-link project-link-secondary" href="#contact">Request Case Study</a>
+            </div>
+          </div>
+        </article>
+        <article class="card project-card">
+          <div class="project-preview live-preview">
+            <iframe
+              class="project-embed"
+              src="https://kutechica.github.io/Swiftserve/"
+              title="Landing page preview of the Swiftserve project"
+              loading="lazy">
+            </iframe>
+            <div class="project-preview-badge">Landing Page</div>
+            <div class="project-preview-meta">
+              <div>
+                <strong>Swiftserve</strong>
+                <span>Shopping app home screen</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">Live Project</span>
+              <span class="project-year">Shopping Interface</span>
+            </div>
+            <span class="project-role"><i class="fa-solid fa-user"></i> Role: Frontend Developer</span>
+            <div>
+              <h3>SwiftServe App</h3>
+              <p>A shopping-style product interface with a hero slider, category section, product grid, wishlist, cart, and bottom navigation designed for quick browsing on user-facing screens.</p>
+            </div>
+            <div class="project-stack" aria-label="Project technologies">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Wishlist & Cart UI</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link project-link-primary" href="https://kutechica.github.io/Swiftserve/" target="_blank" rel="noopener noreferrer">View Live Site</a>
+              <a class="project-link project-link-secondary" href="#contact">Request Case Study</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
+    <section id="certificates">
+      <h2 class="section-title">Certificates</h2>
+      <p class="section-sub">Training and learning milestones that reflect my growth in software development.</p>
+      <div class="certificate-showcase">
+        <div class="certificate-frame">
+          <img src="../images/Bridget_Fafa_Tossou_WT_Bootcamp_5.0_certificate%20(1).png" alt="Women Techsters Bootcamp 5.0 certificate awarded to Bridget Fafa Tossou">
+        </div>
+        <div class="certificate-content">
+          <span class="certificate-badge"><i class="fa-solid fa-award"></i> Featured Certificate</span>
+          <div>
+            <h3>Women Techsters Bootcamp 5.0</h3>
+            <p>A certificate of completion awarded for successfully completing a 3-week bootcamp training in software development through the Women Techsters initiative.</p>
+          </div>
+          <div class="certificate-meta">
+            <span>Software Development</span>
+            <span>Issued: 10 April 2026</span>
+            <span>Women Techsters</span>
+          </div>
+          <div class="certificate-actions">
+            <a class="project-link project-link-primary" href="../images/Bridget_Fafa_Tossou_WT_Bootcamp_5.0_certificate%20(1).png" target="_blank" rel="noopener noreferrer">View Certificate</a>
+            <a class="project-link project-link-secondary" href="#contact">Ask About Training</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="about" id="about">
+      <div class="profile-image about-photo">
+        <img src="../images/bri.png" alt="Professional portrait of Bridget Fafa Tossou">
+      </div>
+      <div>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-sub">Driven by creativity, structure, and continuous learning.</p>
+        <p>I am a frontend-focused developer who enjoys building interfaces that are clean, usable, and visually thoughtful. My work sits at the intersection of design and development, which means I care about both how a product functions and how it feels to use.</p>
+        <p>I enjoy learning through projects, collaborating with teams, and turning ideas into practical digital experiences. Whether I am shaping a landing page, a product interface, or a small web app, I aim to create work that is structured, clear, and genuinely helpful.</p>
+      </div>
+    </section>
 
+        <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">Let's build something valuable together.</p>
+      <div class="card contact-card">
+        <p class="contact-intro">I am open to collaborations, freelance opportunities, internships, and conversations around frontend development, product design, and digital experiences.</p>
+        <div class="contact-list">
+          <a class="contact-item" href="mailto:bridgettossou13@gmail.com">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-details">
+              <strong>Email</strong>
+              <span>bridgettossou13@gmail.com</span>
+            </div>
+          </a>
+          <a class="contact-item" href="https://www.linkedin.com/in/bridgettossou?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
+            <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+            <div class="contact-details">
+              <strong>LinkedIn</strong>
+              <span>linkedin.com/in/bridgettossou</span>
+            </div>
+          </a>
+          <a class="contact-item" href="https://github.com/KuteChica" target="_blank" rel="noopener noreferrer">
+            <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+            <div class="contact-details">
+              <strong>GitHub</strong>
+              <span>github.com/KuteChica</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-title">Bridget Fafa Tossou</div>
+        <p class="footer-copy">Frontend developer building clean, responsive, and user-focused digital experiences.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/bridgettossou?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/KuteChica" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="mailto:bridgettossou13@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Quick Links</div>
+        <div class="footer-links">
+          <a href="#services">Services</a>
+          <a href="#stack">Tech Stack</a>
+          <a href="#projects">Projects</a>
+          <a href="#certificates">Certificates</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Availability</div>
+        <div class="footer-links">
+          <a href="mailto:bridgettossou13@gmail.com?subject=Collaboration%20Opportunity">Open to internships</a>
+          <a href="mailto:bridgettossou13@gmail.com?subject=Freelance%20Project%20Inquiry">Open to freelance work</a>
+          <a href="mailto:bridgettossou13@gmail.com?subject=CV%20Request">Request my CV</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
+
+
